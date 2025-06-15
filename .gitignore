@@ -1,0 +1,27 @@
+# ModelSim backup files
+*.bak
+
+# ModelSim work library folder
+work/
+
+# Quartus or other FPGA tool output folders
+db/
+incremental_db/
+output_files/
+.ipr/
+
+# Common editor/IDE files
+*.log
+*.jou
+*.qpf
+*.qsf
+*.wlf
+*.rpt
+
+# OS-specific (Windows)
+Thumbs.db
+.DS_Store
+
+# Backup files and temp files
+*~
+*.tmp
