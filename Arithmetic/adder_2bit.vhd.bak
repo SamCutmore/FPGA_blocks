@@ -1,0 +1,35 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity adder_2bit is
+    Port (
+        A         : in  STD_LOGIC_VECTOR (1 downto 0);
+        B         : in  STD_LOGIC_VECTOR (1 downto 0);
+	Cin       : in  STD_LOGIC;
+        SUM       : out STD_LOGIC_VECTOR (1 downto 0);
+        carry_out : out STD_LOGIC
+    );
+end adder_2bit;
+
+architecture Structural of adder_2bit is
+
+    component full_adder
+        Port (
+            a         : in  STD_LOGIC;
+            b         : in  STD_LOGIC;
+            cin       : in  STD_LOGIC;
+            sum       : out STD_LOGIC;
+            carry_out : out STD_LOGIC
+        );
+    end component;
+
+    signal carry : STD_LOGIC_VECTOR(1 downto 0);
+    
+begin
+
+    FA0: full_adder port map(a => A(0), b => B(0), cin => Cin, sum => SUM(0), carry_out => carry(0));
+    FA1: full_adder port map(a => A(1), b => B(1), cin => carry(0), sum => SUM(1), carry_out => carry(1));
+
+    carry_out <= carry(1);
+
+end Structural;

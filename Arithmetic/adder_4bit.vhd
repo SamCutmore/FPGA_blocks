@@ -1,0 +1,34 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity adder_4bit is
+    Port (
+        a         : in  STD_LOGIC_VECTOR (3 downto 0);
+        b         : in  STD_LOGIC_VECTOR (3 downto 0);
+	cin       : in  STD_LOGIC;
+        sum       : out STD_LOGIC_VECTOR (3 downto 0);
+        carry_out : out STD_LOGIC
+    );
+end adder_4bit;
+
+architecture Structural of adder_4bit is
+
+    component adder_2bit
+        Port (
+            a         : in  STD_LOGIC_VECTOR (1 downto 0);
+            b         : in  STD_LOGIC_VECTOR (1 downto 0);
+	    cin       : in  STD_LOGIC;
+            sum       : out STD_LOGIC_VECTOR (1 downto 0);
+            carry_out : out STD_LOGIC
+        );
+    end component;
+
+    signal carry : STD_LOGIC_VECTOR(1 downto 0);
+    
+begin
+
+    TwoBitAdd0: adder_2bit port map(a => a(1 downto 0), b => b(1 downto 0), cin => cin, sum => sum(1 downto 0), carry_out => carry(0));
+    TwoBitAdd1: adder_2bit port map(a => a(3 downto 2), b => b(3 downto 2), cin => carry(0), sum => sum(3 downto 2), carry_out => carry(1));
+    carry_out <= carry(1);
+
+end Structural;
