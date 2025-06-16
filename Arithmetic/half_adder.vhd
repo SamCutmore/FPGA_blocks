@@ -12,6 +12,8 @@ end half_adder;
 
 architecture Behavioral of half_adder is
 begin
+
     sum   <= a XOR b;
     carry <= a AND b;
+
 end Behavioral;

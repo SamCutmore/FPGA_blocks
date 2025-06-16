@@ -24,7 +24,9 @@ architecture Structural of full_adder is
     end component;
 
 begin
+
     HA1: half_adder port map(a => a, b => b, sum => s1, carry => c1);
     HA2: half_adder port map(a => s1, b => cin, sum => sum, carry => c2);
     carry_out <= c1 OR c2;
+
 end Structural;

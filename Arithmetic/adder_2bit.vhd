@@ -29,7 +29,6 @@ begin
 
     FA0: full_adder port map(a => a(0), b => b(0), cin => cin, sum => sum(0), carry_out => carry(0));
     FA1: full_adder port map(a => a(1), b => b(1), cin => carry(0), sum => sum(1), carry_out => carry(1));
-
     carry_out <= carry(1);
 
 end Structural;
