@@ -10,6 +10,15 @@ incremental_db/
 output_files/
 .ipr/
 
+# ModelSim/QuestaSim generated files
+*.mti
+*.cr.mti
+*.mpf
+*.wlf
+*.vcd
+modelsim.ini
+
+
 # Common editor/IDE files
 *.log
 *.jou
